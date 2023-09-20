@@ -57,7 +57,7 @@ function BookDetails() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 40 }}
-        className="mx-auto mt-24 flex w-[40rem] flex-col bg-stone-100 pb-8 text-stone-600 "
+        className="mx-auto mt-24 flex max-w-[40rem] flex-col bg-stone-100 pb-8 text-stone-600 "
       >
         <h2 className="mb-0 flex items-center justify-center gap-4 bg-stone-300 py-2 text-center  text-3xl font-bold">
           {title}

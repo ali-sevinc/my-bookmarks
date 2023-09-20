@@ -9,13 +9,14 @@ import { motion } from "framer-motion";
 import Loader from "../ui/Loader";
 import ErrorHandle from "../ui/ErrorHandle";
 import ListActions from "../ui/ListActions";
+import Tooltip from "../ui/Tooltip";
 
 function BookList({ item }) {
   const { deleteFnc, deleteError, deleteLoading } = useDeleteBook();
   const { title, url, id, favorite } = item;
   const { toggleFav } = useToggleFav(id);
 
-  const smalledURL = maxTextLenght(url, 22);
+  const smalledURL = maxTextLenght(url, 18);
 
   function handleDelete() {
     const proceed = window.confirm(
@@ -51,14 +52,14 @@ function BookList({ item }) {
       exit={{ opacity: 0, y: 10 }}
       className="relative flex w-full items-center justify-start  gap-4 border border-x-0 border-b-0 border-t-stone-100 py-2 pl-0 pr-14 text-xl"
     >
-      <h3 className="w-[20%]">{title}</h3>
+      <h3 className="hidden w-[20%] sm:block">{title}</h3>
       <Link
         to={url}
         target="_blank"
         rel="noopener noreferrer"
         className="inline-block w-[30%] hover:text-stone-500 "
       >
-        {smalledURL}
+        <Tooltip text={url}>{smalledURL}</Tooltip>
       </Link>
       <ListActions
         favorite={favorite}

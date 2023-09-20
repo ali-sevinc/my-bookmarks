@@ -1,6 +1,6 @@
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
-function Modal({ children, onClose }) {
+function HamburgerModal({ children, onClose }) {
   return createPortal(
     <>
       <div
@@ -9,12 +9,18 @@ function Modal({ children, onClose }) {
       />
       <AnimatePresence mode="wait">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 40 }}
-          className="min-[500px] fixed left-[calc(50%-10rem)] top-40 z-20 mx-auto w-[20rem] bg-white min-[500px]:left-[calc(50%-15rem)] min-[500px]:w-[30rem] sm:left-[calc(50%-20rem)]  sm:w-[40rem] "
+          exit={{ opacity: 0, y: -40 }}
+          className="fixed left-0 top-0 z-20 w-full bg-stone-800 py-4  "
         >
           {children}
+          <button
+            onClick={onClose}
+            className="absolute right-2 top-0 text-xl text-stone-200 hover:text-red-200"
+          >
+            &times;
+          </button>
         </motion.div>
       </AnimatePresence>
     </>,
@@ -22,4 +28,4 @@ function Modal({ children, onClose }) {
   );
 }
 
-export default Modal;
+export default HamburgerModal;

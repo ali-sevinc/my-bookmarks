@@ -5,9 +5,9 @@ function TagFilter({ handleToggleTag, children }) {
   const [searchParams] = useSearchParams();
   const filterByTag = searchParams.get("tag") || "all";
   return (
-    <div className="mb-8 mt-8 flex justify-between  ">
+    <div className="my-8 flex flex-col  items-center justify-center gap-4 sm:flex-row sm:justify-between ">
       {children}
-      <p className="flex w-[35%] justify-between">
+      <p className="flex justify-between sm:w-[35%]">
         <TagFilterButton
           filterByTag={filterByTag}
           value="all"
