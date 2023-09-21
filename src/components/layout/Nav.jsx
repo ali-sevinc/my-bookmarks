@@ -5,7 +5,7 @@ import { useLogout } from "../auth/useLogout";
 const linkStyles =
   " sm:text-2xl text-[#ddd] duration-200 hover:text-stone-500 hover:underline   ";
 
-function Nav({ styles }) {
+function Nav({ styles, onCLoseModal }) {
   const { logoutFnc } = useLogout();
   const { user, handleLogout } = useLoginContext();
 
@@ -19,6 +19,7 @@ function Nav({ styles }) {
     <div className={`items-center justify-between   ${styles} `}>
       <nav className="flex w-[25rem] flex-col items-center justify-between sm:flex-row ">
         <NavLink
+          onClick={onCLoseModal}
           style={({ isActive }) => {
             return {
               color: isActive ? "#78716c" : "",
@@ -31,6 +32,7 @@ function Nav({ styles }) {
         </NavLink>
 
         <NavLink
+          onClick={onCLoseModal}
           style={({ isActive }) => {
             return {
               color: isActive ? "#78716c" : "",
@@ -45,6 +47,7 @@ function Nav({ styles }) {
 
         {user && (
           <NavLink
+            onClick={onCLoseModal}
             style={({ isActive }) => {
               return {
                 color: isActive ? "#78716c" : "",
@@ -60,6 +63,7 @@ function Nav({ styles }) {
       <section>
         {!user ? (
           <NavLink
+            onClick={onCLoseModal}
             style={({ isActive }) => {
               return {
                 color: isActive ? "#78716c" : "",

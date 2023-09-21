@@ -35,10 +35,10 @@ function MainNavigation() {
       <header className="mx-12 mt-8 border-b border-b-stone-600 pb-4 ">
         {burgerMenu && (
           <HamburgerModal onClose={handleCloseBurger}>
-            <Nav styles="flex flex-col px-4" />
+            <Nav onCLoseModal={handleCloseBurger} styles="flex flex-col px-4" />
           </HamburgerModal>
         )}
-        <Nav styles="sm:flex hidden" />
+        <Nav onCLoseModal={() => {}} styles="sm:flex hidden" />
         {!burgerMenu && <Hamburger onClick={handleShowBurger} />}
       </header>
     </>
